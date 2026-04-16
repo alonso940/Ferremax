@@ -24,5 +24,8 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrapFive();
 
         URL::forceScheme('https');
+
+if (!file_exists(public_path('storage'))) {
+        Artisan::call('storage:link');
     }
 }
